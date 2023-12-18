@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:EmployeeManager.ViewModels"
+             xmlns:models="clr-namespace:EmployeeManager.Models"
+             x:DataType="viewModels:EmployeeListViewModel"
+             x:Class="EmployeeManager.Views.EmployeeList"
+             Title="Employee List">
+
+    <ScrollView>
+        <StackLayout>
+        <Label 
+            Text="Student List"
+            Margin="10"
+            FontSize="28"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    <Button Text="Add Employee" Command="{Binding AddUpdateEmployeesCommand}"
+            HorizontalOptions="StartAndExpand"
+            Margin="15"/>
+        
+                <CollectionView ItemsSource="{Binding Employees}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Employee">
+                        <Frame Margin="5" Padding="0">
+                            <StackLayout Margin="10">
+                                <HorizontalStackLayout Spacing="15">
+                                    <Label Text="{Binding FirstName}" FontSize="16" FontAttributes="Bold"/>
+                                    <Label Text="{Binding LastName}" FontSize="16" FontAttributes="Bold"/>
+
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding Email}"/>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:EmployeeListViewModel}},Path=DisplayActionsCommand}"
+                                                  CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+    </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,1 @@
+E:\C(sharp) Projects\EmployeeManager\EmployeeManager\EmployeeManager.csproj;x64

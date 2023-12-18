@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmployeeManager.Views.AddUpdateEmployee"
+             Title="Add / Update Employee">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="SlateGray"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="10" Spacing="10">
+        <Label 
+            Text="Add and Update Employee"
+            Margin="10"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <VerticalStackLayout>
+            <!-- First Name-->
+            <Label Text="First Name:" FontSize="16"></Label>
+            <Entry Text="{Binding EmployeeDetail.FirstName}" Placeholder="Enter First Name"/>
+            <BoxView HeightRequest="0.8" Color="Gray"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+
+            <!-- Last Name-->
+            <Label Text="Last Name:" FontSize="16"></Label>
+            <Entry Text="{Binding EmployeeDetail.LastName}" Placeholder="Enter Last Name"/>
+            <BoxView HeightRequest="0.8" Color="Gray"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!-- Email-->
+            <Label Text="Email:" FontSize="16"></Label>
+            <Entry Text="{Binding EmployeeDetail.Email}" Placeholder="Enter Email"/>
+            <BoxView HeightRequest="0.8" Color="Gray"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Button Text="Save" Command="{Binding AddUpdateEmployeesCommand}" />
+        </VerticalStackLayout>
+    </StackLayout>
+</ContentPage>
